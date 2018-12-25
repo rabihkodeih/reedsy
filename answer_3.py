@@ -12,7 +12,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 def profile_execution_time(func):
     '''
     This decorator helps identify slow code sections by
-    profile the execution time of the decorated function.
+    profiling the execution time of the decorated function.
     '''
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -27,7 +27,7 @@ def profile_execution_time(func):
 class DocumentList(object):
     '''
     This is a convenience class for modelling
-    collections of documents extracted for a csv
+    collections of documents extracted from a csv
     file.
     '''
     @profile_execution_time
@@ -73,7 +73,7 @@ def sparse_vsm(books, tags, book_tags):
 @profile_execution_time
 def tfidf_normalize(X):
     '''
-    Applies tf-idf normalization the vector space model X.
+    Applies tf-idf normalization to the vector space model X.
     '''
     tfidf_xformer = TfidfTransformer()
     tfidf_xformer.fit(X)
@@ -104,6 +104,7 @@ def search_field_text(documents, field, field_text):
     for d in documents:
         if field_text in d[field]:
             result = d
+            break
     return result
 
 

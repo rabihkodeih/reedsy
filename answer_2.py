@@ -9,7 +9,7 @@ from functools import wraps
 def profile_execution_time(func):
     '''
     This decorator helps identify slow code sections by
-    profile the execution time of the decorated function.
+    profiling the execution time of the decorated function.
     '''
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -24,7 +24,7 @@ def profile_execution_time(func):
 class DocumentList(object):
     '''
     This is a convenience class for modelling
-    collections of documents extracted for a csv
+    collections of documents extracted from a csv
     file.
     '''
     @profile_execution_time
@@ -85,6 +85,9 @@ def aggregate_ratings(ratings):
 
 @profile_execution_time
 def get_authors_books(books):
+    '''
+    Get list of books per author.
+    '''
     authors_books = {}
     for book in books:
         authors = authors_from_book(book)
@@ -98,6 +101,9 @@ def get_authors_books(books):
 
 @profile_execution_time
 def best_average_ratings(authors_ratings, num_results=10):
+    '''
+    Computes the best average ratings.
+    '''
     all_ratings = []
     for author, ratings in authors_ratings.items():
         average_rating = sum(ratings) / len(ratings)
