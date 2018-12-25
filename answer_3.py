@@ -108,7 +108,14 @@ def search_field_text(documents, field, field_text):
 
 
 if __name__ == '__main__':
-    sys.stdout.write('Question 3:\n\n')
+    sys.stdout.write(
+        ('\nQuestion 3\n'
+         '----------\n'
+         'Recommend 10 books similar to "The Golden Compass" by Philip Pullman.\n'
+         'Again, you may use any tools; include scripts and clear workings in your answer.\n\n'
+         'Answer 3\n'
+         '--------\n')
+    )
 
     # load all documents from csv input
     books = DocumentList('./data/books.csv')
