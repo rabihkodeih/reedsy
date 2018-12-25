@@ -38,7 +38,7 @@ Company: et3arraf.com | [view](http://www.et3arraf.com/)
 
 Project: Online Dating Recommender System
 
-This project was aimed at finding reliable recommendations for online daters from both genders. A specialized algorithm based on reciprocal collaborative filtering was used in addition to summary statistics per feature to generate the recommendations. We designed and implemented the whole system. Including the RESTFUL API service, the actual logic, reporting and dashboard/UI.
+This project was aimed at finding reliable recommendations for online daters from both genders. A specialized algorithm based on reciprocal collaborative filtering was used in addition to summary statistics per feature to generate the recommendations. We designed and implemented the whole system including the RESTFUL API service, the actual logic, reporting and dashboard/UI.
 
 
 ### Question 2
@@ -52,7 +52,7 @@ What thoughts do you have on the results?
 
 #### Answer
 
-The answer is summarized in script answer_2.py:
+The answer is implemented in script answer_2.py:
 
     python answer_2.py
     
@@ -107,7 +107,7 @@ Again, you may use any tools; include scripts and clear workings in your answer.
 
 #### Answer
 
-The answer is summarized in script answer_3.py:
+The answer is implemented in script answer_3.py:
 
     python answer_3.py
     
