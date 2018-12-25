@@ -141,7 +141,7 @@ if __name__ == '__main__':
         table.add_row((ith, distance, book['title'], book['authors'],
                        book['isbn'], book['original_publication_year']))
     s = table.draw()
-    sys.stdout.write(s + '\n')
+    sys.stdout.write('\n' + s + '\n')
 
     sys.stdout.write('\n\nDone.\n')
 
