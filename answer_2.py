@@ -100,7 +100,7 @@ def get_authors_books(books):
 
 
 @profile_execution_time
-def best_average_ratings(authors_ratings, num_results=10):
+def best_average_ratings(authors_ratings, num_results, authors_books=None):
     '''
     Computes the best average ratings.
     '''
@@ -108,7 +108,13 @@ def best_average_ratings(authors_ratings, num_results=10):
     for author, ratings in authors_ratings.items():
         average_rating = sum(ratings) / len(ratings)
         ratings_count = len(ratings)
-        all_ratings.append((average_rating, author, ratings_count))
+        if authors_books is None:
+            all_ratings.append((average_rating, author, ratings_count))
+        else:
+            num_books = len(authors_books[author])
+            if num_books > 1:
+                all_ratings.append((average_rating, author, ratings_count))
+
     all_ratings.sort(key=lambda x: x[0], reverse=True)
     return all_ratings[:num_results]
 
@@ -125,6 +131,12 @@ if __name__ == '__main__':
          '--------\n')
     )
 
+    # check command line option to filter outliers
+    if len(sys.argv) > 1 and sys.argv[1] == 'filter-outliers':
+        filter_outliers = True
+    else:
+        filter_outliers = False
+
     # load all documents from csv input
     books = DocumentList('./data/books.csv')
     ratings = DocumentList('./data/ratings.csv')
@@ -136,7 +148,10 @@ if __name__ == '__main__':
     authors_ratings = aggregate_ratings(ratings)
 
     # compute best average ratings
-    best_ratings = best_average_ratings(authors_ratings)
+    if filter_outliers:
+        best_ratings = best_average_ratings(authors_ratings, 10, authors_books)
+    else:
+        best_ratings = best_average_ratings(authors_ratings, 10)
 
     # report results
     table = tt.Texttable()
