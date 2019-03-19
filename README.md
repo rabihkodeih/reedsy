@@ -202,6 +202,12 @@ will produce the following output:
 
 To get the set of similar books, we embeded the data in a normalized vector space model then used cosine similarity to compute the results.
 
+Of course in a real production setting, we could use efficient methods to compute nearst neighbors in a large high-dimenssional data sets
+such as:
+
+1. [Locality-sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing)
+2. [Scalable Nearest Neighbor Algorithms for High Dimensional Data](http://www.cs.ubc.ca/research/flann/uploads/FLANN/flann_pami2014.pdf) 
+
 (end of README.md)
 
 
